@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/piece?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: piece
+    password: piece1234!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  security:
+    user:
+      name: piece
+      password: piece!
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+application:
+  jwt:
+    secretKey: 16ecb979d8d537ad587cf06969e9a068bd50d7e0e0e976b3275fc45f8f727112
+    expiration: 172800000    # 48시간
+    refreshExpiration: 604800000   # 7일
+
+springdoc:
+  api-docs:
+    enabled: true
+    version: openapi_3_0
+    path: /v3/api-docs
+  default-consumes-media-type: application/json
+  auto-tag-classes: true
+  swagger-ui:
+    operationsSorter: method
+    path: /swagger-ui.html

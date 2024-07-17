@@ -1,12 +1,15 @@
 package com.project.pieceserver.domain.user.client.api;
 
-import com.project.pieceserver.domain.user.usecase.response.ChargeResponse;
+import com.project.pieceserver.domain.user.client.dto.User;
 import com.project.pieceserver.domain.user.usecase.UserUseCase;
+import com.project.pieceserver.domain.user.usecase.response.ChargeResponse;
 import com.project.pieceserver.global.common.dto.response.BaseResponse;
+import com.project.pieceserver.global.common.dto.response.BaseResponseData;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +23,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private final UserUseCase userUseCase;
+
+    @GetMapping("")
+    @Operation(summary = "유저 프로필")
+    public BaseResponseData<User> getUser() {
+        return BaseResponseData.ok(
+                "유저 프로필 불러오기 성공",
+                userUseCase.getUser());
+    }
 
     @PatchMapping("/charge-money")
     @Operation(summary = "유저 계좌 잔액 충전")

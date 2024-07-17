@@ -1,5 +1,6 @@
 package com.project.pieceserver.domain.user.usecase;
 
+import com.project.pieceserver.domain.user.client.dto.User;
 import com.project.pieceserver.domain.user.service.UserService;
 import com.project.pieceserver.domain.user.usecase.response.ChargeResponse;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,10 @@ import org.springframework.stereotype.Component;
 public class UserUseCase {
 
     private final UserService userService;
+
+    public User getUser(){
+        return userService.getUser();
+    }
 
     public ChargeResponse chargeMoney (int money){
         int currentMoney = userService.chargeMoney(money);

@@ -82,7 +82,7 @@ public class UserService {
             throw NotEnoughPointException.EXCEPTION;
         user.setPoint(currentPoint);
         userRepository.save(userDTO.toEntity(user));
-        return currentPoint;
+        return user.getPoint();
     }
 
     public int chargeMoney(int money){
@@ -91,7 +91,7 @@ public class UserService {
         int currentBalance = oldBalance + money;
         user.setBalance(currentBalance);
         userRepository.save(userDTO.toEntity(user));
-        return currentBalance;
+        return user.getBalance();
     }
 
     public int chargePoint(int point){

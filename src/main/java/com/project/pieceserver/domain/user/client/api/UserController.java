@@ -1,6 +1,6 @@
 package com.project.pieceserver.domain.user.client.api;
 
-import com.project.pieceserver.domain.user.client.dto.response.ChargeResponse;
+import com.project.pieceserver.domain.user.usecase.response.ChargeResponse;
 import com.project.pieceserver.domain.user.usecase.UserUseCase;
 import com.project.pieceserver.global.common.dto.response.BaseResponse;
 import io.swagger.v3.oas.annotations.Operation;

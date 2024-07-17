@@ -1,4 +1,4 @@
-package com.project.pieceserver.domain.user.application.service;
+package com.project.pieceserver.domain.user.service;
 
 import com.project.pieceserver.domain.user.client.dto.User;
 import com.project.pieceserver.domain.user.domain.repository.jpa.UserRepository;

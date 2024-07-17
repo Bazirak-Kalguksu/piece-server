@@ -1,7 +1,7 @@
 package com.project.pieceserver.domain.user.usecase;
 
-import com.project.pieceserver.domain.user.application.service.UserService;
-import com.project.pieceserver.domain.user.client.dto.response.ChargeResponse;
+import com.project.pieceserver.domain.user.service.UserService;
+import com.project.pieceserver.domain.user.usecase.response.ChargeResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

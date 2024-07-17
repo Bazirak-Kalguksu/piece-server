@@ -4,7 +4,7 @@ import com.project.pieceserver.domain.auth.client.request.SignInRequest;
 import com.project.pieceserver.domain.auth.client.request.SignUpRequest;
 import com.project.pieceserver.domain.auth.usecase.response.JsonWebTokenResponse;
 import com.project.pieceserver.domain.auth.usecase.response.RefreshTokenResponse;
-import com.project.pieceserver.domain.user.application.service.UserService;
+import com.project.pieceserver.domain.user.service.UserService;
 import com.project.pieceserver.domain.user.client.dto.User;
 import com.project.pieceserver.domain.user.domain.enums.UserRole;
 import com.project.pieceserver.global.security.jwt.JwtExtract;

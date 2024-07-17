@@ -1,4 +1,4 @@
-package com.project.pieceserver.domain.user.client.dto.response;
+package com.project.pieceserver.domain.user.usecase.response;
 
 import lombok.Builder;
 

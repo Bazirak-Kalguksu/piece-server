@@ -2,7 +2,7 @@ package com.project.pieceserver.domain.donate.client.api;
 
 import com.project.pieceserver.domain.donate.client.dto.request.DonateMoneyRequest;
 import com.project.pieceserver.domain.donate.client.dto.request.DonatePointRequest;
-import com.project.pieceserver.domain.donate.client.dto.response.DonateResponse;
+import com.project.pieceserver.domain.donate.usecase.response.DonateResponse;
 import com.project.pieceserver.domain.donate.usecase.DonateUseCase;
 import com.project.pieceserver.global.common.dto.response.BaseResponseData;
 import io.swagger.v3.oas.annotations.Operation;

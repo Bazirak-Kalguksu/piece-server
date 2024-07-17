@@ -4,10 +4,10 @@ import com.project.pieceserver.domain.donate.client.dto.BankLog;
 import com.project.pieceserver.domain.donate.client.dto.PointLog;
 import com.project.pieceserver.domain.donate.client.dto.request.DonateMoneyRequest;
 import com.project.pieceserver.domain.donate.client.dto.request.DonatePointRequest;
-import com.project.pieceserver.domain.donate.client.dto.response.DonateResponse;
+import com.project.pieceserver.domain.donate.usecase.response.DonateResponse;
 import com.project.pieceserver.domain.donate.service.BankLogService;
 import com.project.pieceserver.domain.donate.service.PointLogService;
-import com.project.pieceserver.domain.user.application.service.UserService;
+import com.project.pieceserver.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

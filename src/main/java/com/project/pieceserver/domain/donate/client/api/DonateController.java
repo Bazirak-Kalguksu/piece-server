@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class DonateController {
 
     private final DonateUseCase donateUseCase;
 
-    @PostMapping("/money")
+    @PatchMapping("/money")
     @Operation(summary = "계좌 후원")
     public BaseResponseData<DonateResponse> donateMoney(@Valid @RequestBody DonateMoneyRequest donateMoneyRequest) {
         return BaseResponseData.ok(
@@ -31,7 +32,7 @@ public class DonateController {
                 donateUseCase.saveBankLog(donateMoneyRequest));
     }
 
-    @PostMapping("/point")
+    @PatchMapping("/point")
     @Operation(summary = "포인트 후원")
     public BaseResponseData<DonateResponse> donatePoint(@Valid @RequestBody DonatePointRequest donatePointRequest) {
         return BaseResponseData.ok(

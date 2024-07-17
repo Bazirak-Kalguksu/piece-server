@@ -6,12 +6,12 @@ import lombok.Getter;
 @Getter
 public class UserRankingResponse {
 
-    private String email;
+    private String name;
     private Integer totalPoints;
 
     @QueryProjection
-    public UserRankingResponse(String email, Integer totalPoints) {
-        this.email = email;
+    public UserRankingResponse(String name, Integer totalPoints) {
+        this.name = name;
         this.totalPoints = totalPoints;
     }
 

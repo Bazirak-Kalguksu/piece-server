@@ -19,6 +19,8 @@ public class PointLogEntity extends BaseTimeEntity {
     @Id
     private String email;
 
+    private String name;
+
     private int point;
 
 }

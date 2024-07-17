@@ -34,6 +34,7 @@ public class DonateUseCase {
         int currentPoint = userService.donatePoint(donatePointRequest.point());
         pointLogService.savePointLog(PointLog.builder()
                         .email(userService.getUser().getEmail())
+                        .name(userService.getUser().getName())
                         .point(donatePointRequest.point())
                 .build());
         return DonateResponse.builder()

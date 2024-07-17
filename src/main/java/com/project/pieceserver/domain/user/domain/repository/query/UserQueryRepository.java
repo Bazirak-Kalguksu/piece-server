@@ -18,7 +18,7 @@ public class UserQueryRepository {
 
     public List<UserRankingResponse> findUserRankings(int page, int size) {
         return jpaQueryFactory
-                .select(new QUserRankingResponse(pointLogEntity.email, pointLogEntity.point.sum()))
+                .select(new QUserRankingResponse( pointLogEntity.name, pointLogEntity.point.sum()))
                 .from(pointLogEntity)
                 .offset((long) (page - 1) * size)
                 .limit(size)

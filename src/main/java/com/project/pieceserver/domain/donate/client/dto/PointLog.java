@@ -18,11 +18,13 @@ import org.springframework.stereotype.Component;
 public class PointLog {
 
     private String email;
+    private String name;
     private int point;
 
     public PointLogEntity toEntity(PointLog pointLog){
         return PointLogEntity.builder()
                 .email(pointLog.getEmail())
+                .name(pointLog.getName())
                 .point(pointLog.getPoint())
                 .build();
     }
@@ -30,6 +32,7 @@ public class PointLog {
     public PointLog toPointLog (PointLogEntity pointLogEntity){
         return PointLog.builder()
                 .email(pointLogEntity.getEmail())
+                .name(pointLogEntity.getName())
                 .point(pointLogEntity.getPoint())
                 .build();
     }

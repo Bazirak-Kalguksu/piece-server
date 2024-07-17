@@ -3,6 +3,8 @@ package com.project.pieceserver.domain.user.application.service;
 import com.project.pieceserver.domain.user.client.dto.User;
 import com.project.pieceserver.domain.user.client.dto.request.NameEditRequest;
 import com.project.pieceserver.domain.user.domain.repository.jpa.UserRepository;
+import com.project.pieceserver.domain.user.exception.NotEnoughMoneyException;
+import com.project.pieceserver.domain.user.exception.NotEnoughPointException;
 import com.project.pieceserver.domain.user.exception.PasswordWrongException;
 import com.project.pieceserver.domain.user.exception.UserExistException;
 import com.project.pieceserver.domain.user.exception.UserNotFoundException;
@@ -56,5 +58,24 @@ public class UserService {
                 .orElseThrow(()-> UserNotFoundException.EXCEPTION);
     }
 
+    public int donateMoney(int money){
+        User user = getUser();
+        int oldBalance = user.getBalance();
+        int currentBalance = oldBalance - money;
+        if(currentBalance < 0)
+            throw NotEnoughMoneyException.EXCEPTION;
+        user.setBalance(currentBalance);
+        return currentBalance;
+    }
+
+    public int donatePoint(int point){
+        User user = getUser();
+        int oldPoint = user.getPoint();
+        int currentPoint = oldPoint - point;
+        if(currentPoint < 0)
+            throw NotEnoughPointException.EXCEPTION;
+        user.setPoint(currentPoint);
+        return currentPoint;
+    }
 
 }

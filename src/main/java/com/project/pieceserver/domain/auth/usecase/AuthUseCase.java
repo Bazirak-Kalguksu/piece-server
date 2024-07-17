@@ -31,6 +31,8 @@ public class AuthUseCase {
                         .email(signUpRequest.email())
                         .password(encoder.encode(signUpRequest.password()))
                         .name(signUpRequest.name())
+                        .point(0)
+                        .balance(0)
                         .birth(signUpRequest.birth()).build());
     }
 

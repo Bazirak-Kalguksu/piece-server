@@ -46,14 +46,18 @@ public class UserController {
 
     @PatchMapping("/charge-money")
     @Operation(summary = "유저 계좌 잔액 충전")
-    public ChargeResponse chargeMoney(@RequestParam int money) {
-        return userUseCase.chargeMoney(money);
+    public BaseResponseData<ChargeResponse> chargeMoney(@RequestParam int money) {
+        return BaseResponseData.ok(
+                "충전 성공",
+                userUseCase.chargeMoney(money));
     }
 
     @PatchMapping("/charge-point")
     @Operation(summary = "유저 포인트 충전")
-    public ChargeResponse chergePoint(@RequestParam int point) {
-        return userUseCase.chargePoint(point);
+    public BaseResponseData<ChargeResponse> chergePoint(@RequestParam int point) {
+        return BaseResponseData.ok(
+                "충전 성공",
+                userUseCase.chargePoint(point));
     }
 
     @PatchMapping("/name")

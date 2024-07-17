@@ -1,8 +1,10 @@
 package com.project.pieceserver.domain.user.client.api;
 
+import com.project.pieceserver.domain.donate.client.dto.response.UserRankingResponse;
 import com.project.pieceserver.domain.user.client.dto.User;
 import com.project.pieceserver.domain.user.usecase.UserUseCase;
 import com.project.pieceserver.domain.user.usecase.response.ChargeResponse;
+import com.project.pieceserver.global.common.dto.request.PageRequest;
 import com.project.pieceserver.global.common.dto.response.BaseResponse;
 import com.project.pieceserver.global.common.dto.response.BaseResponseData;
 import io.swagger.v3.oas.annotations.Operation;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @Tag(name = "유저 API")
@@ -30,6 +34,14 @@ public class UserController {
         return BaseResponseData.ok(
                 "유저 프로필 불러오기 성공",
                 userUseCase.getUser());
+    }
+
+    @GetMapping("/ranking")
+    @Operation(summary = "유저 랭킹")
+    public BaseResponseData<List<UserRankingResponse>> userRanking(PageRequest pageRequest) {
+        return BaseResponseData.ok(
+                "유저 랭킹 불러오기 성공",
+                userUseCase.userRanking(pageRequest));
     }
 
     @PatchMapping("/charge-money")

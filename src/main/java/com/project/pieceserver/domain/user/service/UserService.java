@@ -1,16 +1,21 @@
 package com.project.pieceserver.domain.user.service;
 
+import com.project.pieceserver.domain.donate.client.dto.response.UserRankingResponse;
 import com.project.pieceserver.domain.user.client.dto.User;
 import com.project.pieceserver.domain.user.domain.repository.jpa.UserRepository;
+import com.project.pieceserver.domain.user.domain.repository.query.UserQueryRepository;
 import com.project.pieceserver.domain.user.exception.NotEnoughMoneyException;
 import com.project.pieceserver.domain.user.exception.NotEnoughPointException;
 import com.project.pieceserver.domain.user.exception.PasswordWrongException;
 import com.project.pieceserver.domain.user.exception.UserExistException;
 import com.project.pieceserver.domain.user.exception.UserNotFoundException;
+import com.project.pieceserver.global.common.dto.request.PageRequest;
 import com.project.pieceserver.global.common.repository.UserSecurity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +25,7 @@ public class UserService {
     private final UserSecurity userSecurity;
     private final PasswordEncoder encoder;
     private final User userDTO;
+    private final UserQueryRepository userQueryRepository;
 
     public void editUserName(String name) {
         User user = getUser();
@@ -95,6 +101,10 @@ public class UserService {
         user.setPoint(currentPoint);
         userDTO.toEntity(user);
         return currentPoint;
+    }
+
+    public List<UserRankingResponse> userRanking(int page, int size) {
+        return userQueryRepository.findUserRankings(page, size);
     }
 
 }

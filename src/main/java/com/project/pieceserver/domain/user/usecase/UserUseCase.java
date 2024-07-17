@@ -1,10 +1,14 @@
 package com.project.pieceserver.domain.user.usecase;
 
+import com.project.pieceserver.domain.donate.client.dto.response.UserRankingResponse;
 import com.project.pieceserver.domain.user.client.dto.User;
 import com.project.pieceserver.domain.user.service.UserService;
 import com.project.pieceserver.domain.user.usecase.response.ChargeResponse;
+import com.project.pieceserver.global.common.dto.request.PageRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -14,6 +18,10 @@ public class UserUseCase {
 
     public User getUser(){
         return userService.getUser();
+    }
+
+    public List<UserRankingResponse> userRanking(PageRequest pageRequest){
+        return userService.userRanking(pageRequest.getPage(),pageRequest.getSize());
     }
 
     public ChargeResponse chargeMoney (int money){

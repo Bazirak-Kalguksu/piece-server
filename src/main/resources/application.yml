@@ -2,16 +2,20 @@ server:
   port: 8080
 
 spring:
+  profiles:
+    active: prod
   datasource:
-    url: jdbc:mysql://localhost:3306/piece?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: piece
-    password: piece1234!
+    hikari:
+      max-lifetime: 170000 # 170초
+    url: ${secrets.RDS_PATH}
+    username: ${secrets.DB_USERNAME}
+    password: ${secrets.DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   security:
     user:
-      name: piece
-      password: piece!
+      name: ${secrets.SECURITY_USER_NAME}
+      password: ${secrets.SECURITY_USER_PASSWORD}
 
   jpa:
     database: mysql
@@ -26,7 +30,7 @@ spring:
 
 application:
   jwt:
-    secretKey: 16ecb979d8d537ad587cf06969e9a068bd50d7e0e0e976b3275fc45f8f727112
+    secretKey: ${secrets.JWT_SECRET_KEY}
     expiration: 172800000    # 48시간
     refreshExpiration: 604800000   # 7일
 

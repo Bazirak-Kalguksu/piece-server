@@ -2,10 +2,12 @@ package com.project.pieceserver.domain.campaign.client.api;
 
 import com.project.pieceserver.domain.campaign.client.dto.Campaign;
 import com.project.pieceserver.domain.campaign.client.dto.request.CampaignRegisterRequest;
+import com.project.pieceserver.domain.campaign.client.dto.request.CampaignSearchRequest;
 import com.project.pieceserver.domain.campaign.usecase.CampaignUseCase;
 import com.project.pieceserver.global.common.dto.request.PageRequest;
 import com.project.pieceserver.global.common.dto.response.BaseResponse;
 import com.project.pieceserver.global.common.dto.response.BaseResponseData;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -27,16 +29,27 @@ public class CampaignController {
     private final CampaignUseCase campaignUseCase;
 
     @PostMapping("")
+    @Operation(summary = "캠페인 등록")
     public BaseResponse registerCampaign(@RequestBody CampaignRegisterRequest campaignRegisterRequest) {
         campaignUseCase.registerCampaign(campaignRegisterRequest);
         return BaseResponse.created("등록되었습니다.");
     }
 
-    @GetMapping("")
+    @GetMapping("/list")
+    @Operation(summary = "캠페인 목록")
     public BaseResponseData<List<Campaign>> campaignList(@ModelAttribute PageRequest pageRequest){
         return BaseResponseData.ok(
                 "캠페인 리스트를 성공적으로 불러왔습니다.",
                 campaignUseCase.campaignList(pageRequest));
+    }
+
+    @GetMapping("/search")
+    @Operation(summary = "캠페인 검색")
+    public BaseResponseData<List<Campaign>> campaignSearch(
+            @ModelAttribute CampaignSearchRequest campaignSearchRequest){
+        return BaseResponseData.ok(
+                "검색 완료",
+                campaignUseCase.campaignSearch(campaignSearchRequest));
     }
 
 }

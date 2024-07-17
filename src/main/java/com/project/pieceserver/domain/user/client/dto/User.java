@@ -21,6 +21,7 @@ public class User {
     private String password;
     private String name;
     private String birth;
+    private int point;
     private UserRole userRole;
 
     public UserEntity toEntity(User user){
@@ -29,6 +30,7 @@ public class User {
                 .password(user.getPassword())
                 .name(user.getName())
                 .birth(user.getBirth())
+                .point(user.getPoint())
                 .userRole(UserRole.USER)
                 .build();
     }
@@ -39,6 +41,7 @@ public class User {
                 .password(userEntity.getPassword())
                 .name(userEntity.getName())
                 .birth(userEntity.getBirth())
+                .point(userEntity.getPoint())
                 .userRole(userEntity.getUserRole())
                 .build();
     }

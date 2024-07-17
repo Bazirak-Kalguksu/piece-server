@@ -1,4 +1,4 @@
-package com.project.pieceserver.domain.auth.client.dto.request;
+package com.project.pieceserver.domain.auth.client.request;
 
 import jakarta.validation.constraints.NotBlank;
 

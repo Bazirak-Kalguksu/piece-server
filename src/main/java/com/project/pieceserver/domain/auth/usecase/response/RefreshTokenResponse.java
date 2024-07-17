@@ -1,4 +1,4 @@
-package com.project.pieceserver.domain.auth.client.dto.response;
+package com.project.pieceserver.domain.auth.usecase.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;

@@ -1,9 +1,9 @@
 package com.project.pieceserver.domain.auth.usecase;
 
-import com.project.pieceserver.domain.auth.client.dto.request.SignInRequest;
-import com.project.pieceserver.domain.auth.client.dto.request.SignUpRequest;
-import com.project.pieceserver.domain.auth.client.dto.response.JsonWebTokenResponse;
-import com.project.pieceserver.domain.auth.client.dto.response.RefreshTokenResponse;
+import com.project.pieceserver.domain.auth.client.request.SignInRequest;
+import com.project.pieceserver.domain.auth.client.request.SignUpRequest;
+import com.project.pieceserver.domain.auth.usecase.response.JsonWebTokenResponse;
+import com.project.pieceserver.domain.auth.usecase.response.RefreshTokenResponse;
 import com.project.pieceserver.domain.user.application.service.UserService;
 import com.project.pieceserver.domain.user.client.dto.User;
 import com.project.pieceserver.domain.user.domain.enums.UserRole;

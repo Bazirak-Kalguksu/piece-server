@@ -1,12 +1,11 @@
 package com.project.pieceserver.domain.auth.client.api;
 
-import com.project.pieceserver.domain.auth.client.dto.request.RefreshTokenRequest;
-import com.project.pieceserver.domain.auth.client.dto.request.SignInRequest;
-import com.project.pieceserver.domain.auth.client.dto.request.SignUpRequest;
-import com.project.pieceserver.domain.auth.client.dto.response.JsonWebTokenResponse;
-import com.project.pieceserver.domain.auth.client.dto.response.RefreshTokenResponse;
+import com.project.pieceserver.domain.auth.client.request.RefreshTokenRequest;
+import com.project.pieceserver.domain.auth.client.request.SignInRequest;
+import com.project.pieceserver.domain.auth.client.request.SignUpRequest;
+import com.project.pieceserver.domain.auth.usecase.response.JsonWebTokenResponse;
+import com.project.pieceserver.domain.auth.usecase.response.RefreshTokenResponse;
 import com.project.pieceserver.domain.auth.usecase.AuthUseCase;
-import com.project.pieceserver.domain.user.usecase.UserUseCase;
 import com.project.pieceserver.global.common.dto.response.BaseResponse;
 import com.project.pieceserver.global.common.dto.response.BaseResponseData;
 import io.swagger.v3.oas.annotations.Operation;

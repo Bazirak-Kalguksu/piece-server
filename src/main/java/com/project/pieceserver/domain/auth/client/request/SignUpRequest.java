@@ -1,4 +1,4 @@
-package com.project.pieceserver.domain.auth.client.dto.request;
+package com.project.pieceserver.domain.auth.client.request;
 
 public record SignUpRequest(
         String email,

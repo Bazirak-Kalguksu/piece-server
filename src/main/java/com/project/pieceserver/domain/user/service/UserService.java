@@ -81,7 +81,7 @@ public class UserService {
         if(currentPoint < 0)
             throw NotEnoughPointException.EXCEPTION;
         user.setPoint(currentPoint);
-        userDTO.toEntity(user);
+        userRepository.save(userDTO.toEntity(user));
         return currentPoint;
     }
 
@@ -90,7 +90,7 @@ public class UserService {
         int oldBalance = user.getBalance();
         int currentBalance = oldBalance + money;
         user.setBalance(currentBalance);
-        userDTO.toEntity(user);
+        userRepository.save(userDTO.toEntity(user));
         return currentBalance;
     }
 

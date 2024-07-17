@@ -29,7 +29,7 @@ public class CampaignController {
     @PostMapping("")
     public BaseResponse registerCampaign(@RequestBody CampaignRegisterRequest campaignRegisterRequest) {
         campaignUseCase.registerCampaign(campaignRegisterRequest);
-        return BaseResponse.ok("등록되었습니다.");
+        return BaseResponse.created("등록되었습니다.");
     }
 
     @GetMapping("")

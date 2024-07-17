@@ -1,6 +1,7 @@
 package com.project.pieceserver.domain.user.client.dto;
 
 import com.project.pieceserver.domain.user.domain.entity.UserEntity;
+import com.project.pieceserver.domain.user.domain.enums.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,6 +21,7 @@ public class User {
     private String password;
     private String name;
     private String birth;
+    private UserRole userRole;
 
     public UserEntity toEntity(User user){
         return UserEntity.builder()
@@ -27,6 +29,7 @@ public class User {
                 .password(user.getPassword())
                 .name(user.getName())
                 .birth(user.getBirth())
+                .userRole(UserRole.USER)
                 .build();
     }
 
@@ -36,6 +39,7 @@ public class User {
                 .password(userEntity.getPassword())
                 .name(userEntity.getName())
                 .birth(userEntity.getBirth())
+                .userRole(userEntity.getUserRole())
                 .build();
     }
 

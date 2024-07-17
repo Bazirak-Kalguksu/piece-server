@@ -1,7 +1,6 @@
 package com.project.pieceserver.domain.user.application.service;
 
 import com.project.pieceserver.domain.user.client.dto.User;
-import com.project.pieceserver.domain.user.client.dto.request.NameEditRequest;
 import com.project.pieceserver.domain.user.domain.repository.jpa.UserRepository;
 import com.project.pieceserver.domain.user.exception.NotEnoughMoneyException;
 import com.project.pieceserver.domain.user.exception.NotEnoughPointException;
@@ -22,9 +21,9 @@ public class UserService {
     private final PasswordEncoder encoder;
     private final User userDTO;
 
-    public void editUserName(NameEditRequest request) {
+    public void editUserName(String name) {
         User user = getUser();
-        user.setName(request.getName());
+        user.setName(name);
         userRepository.save(user.toEntity(user));
     }
 
@@ -65,6 +64,7 @@ public class UserService {
         if(currentBalance < 0)
             throw NotEnoughMoneyException.EXCEPTION;
         user.setBalance(currentBalance);
+        userDTO.toEntity(user);
         return currentBalance;
     }
 
@@ -75,6 +75,25 @@ public class UserService {
         if(currentPoint < 0)
             throw NotEnoughPointException.EXCEPTION;
         user.setPoint(currentPoint);
+        userDTO.toEntity(user);
+        return currentPoint;
+    }
+
+    public int chargeMoney(int money){
+        User user = getUser();
+        int oldBalance = user.getBalance();
+        int currentBalance = oldBalance + money;
+        user.setBalance(currentBalance);
+        userDTO.toEntity(user);
+        return currentBalance;
+    }
+
+    public int chargePoint(int point){
+        User user = getUser();
+        int oldPoint = user.getPoint();
+        int currentPoint = oldPoint + point;
+        user.setPoint(currentPoint);
+        userDTO.toEntity(user);
         return currentPoint;
     }
 

@@ -4,14 +4,12 @@ import com.project.pieceserver.domain.donate.client.dto.request.DonateMoneyReque
 import com.project.pieceserver.domain.donate.client.dto.request.DonatePointRequest;
 import com.project.pieceserver.domain.donate.client.dto.response.DonateResponse;
 import com.project.pieceserver.domain.donate.usecase.DonateUseCase;
-import com.project.pieceserver.global.common.dto.response.BaseResponse;
 import com.project.pieceserver.global.common.dto.response.BaseResponseData;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

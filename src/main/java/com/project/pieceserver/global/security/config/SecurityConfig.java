@@ -24,10 +24,6 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final JwtExceptionFilter jwtExceptionFilter;
 
-    private static final String USER = "ROLE_USER";
-    private static final String TEACHER = "ROLE_TEACHER";
-    private static final String ADMIN = "ROLE_ADMIN";
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

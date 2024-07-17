@@ -35,7 +35,8 @@ public class UserController {
 
     @PatchMapping("/name")
     @Operation(summary = "유저 이름 변경")
-    public BaseResponse editUser(@Validated @RequestBody NameEditRequest request) {
+    public BaseResponse editUser(@Validated @RequestBody String name) {
+        userUseCase.editName(name);
         return BaseResponse.ok("이름 변경이 완료되었습니다 ㅋ");
     }
 

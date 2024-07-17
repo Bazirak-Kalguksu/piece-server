@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,12 @@ public class UserController {
     @Operation(summary = "유저 이름 변경")
     public void editUser(@Validated @RequestBody NameEditRequest request) {
         userService.editUserName(request);
+    }
+
+    @DeleteMapping("")
+    @Operation(summary = "회원탈퇴", description = "회원 탈퇴를 진행합니다")
+    public void deleteUser(){
+        userService.deleteUser();
     }
 
 }

@@ -12,4 +12,7 @@ public interface UserRepository extends JpaRepository<UserEntity, String> {
 
     UserEntity getByEmail(String email);
 
+    @Transactional(rollbackOn = Exception.class)
+    void deleteByEmail(String email);
+
 }

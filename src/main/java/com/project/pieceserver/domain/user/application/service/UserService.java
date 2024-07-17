@@ -56,5 +56,8 @@ public class UserService {
                 .orElseThrow(()-> UserNotFoundException.EXCEPTION);
     }
 
+    public void deleteUser() {
+        userRepository.deleteByEmail(userSecurity.getUser().getEmail());
+    }
 
 }
